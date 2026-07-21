@@ -1,6 +1,6 @@
 [project]
 name = "standardwebhooks"
-version = "1.0.1"
+dynamic = ["version"]
 description = "Standard Webhooks"
 authors = [
     { name = "Standard Webhooks Team" }
@@ -36,7 +36,6 @@ dependencies = []
 [dependency-groups]
 dev = [
     "mypy>=1.4.0",
-    "pip-tools>=6.13.0",
     "pytest",
     "ruff>=0.1.8",
     "ty>=0.0.32"
@@ -47,8 +46,8 @@ dev = [
 requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
-[tool.setuptools.package-data]
-"standardwebhooks" = ["py.typed"]
+[tool.hatch.version]
+path = "standardwebhooks/__init__.py"
 
 [tool.hatch.build]
 exclude = [".github/*", "scripts/*", "tests/*", 'uv.lock', "mypy.ini", ".gitignore", "/.*"]
